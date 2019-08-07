@@ -4,12 +4,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "www/next.config.js",
+      "src": "next.config.js",
       "use": "@now/next"
-    },
-    {
-      "src": "rss/*.js",
-      "use": "@now/node"
     }
   ],
   "env": {
@@ -24,13 +20,6 @@
   },
   "routes": [
     {
-      "src": "/rss.*",
-      "dest": "/rss/index.js",
-      "headers": {
-        "cache-control": "s-maxage=7200, max-age=0"
-      }
-    },
-    {
       "src": "/notes.*",
       "continue": true,
       "headers": {
@@ -38,19 +27,11 @@
       }
     },
     {
-      "src": "/notes/(?<uid>[^/]+)",
-      "dest": "www/notes/show?n=$uid"
-    },
-    {
       "src": "/",
       "continue": true,
       "headers": {
         "cache-control": "s-maxage=2592000, max-age=0"
       }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/www/$1"
     }
   ]
 }
