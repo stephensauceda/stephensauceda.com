@@ -32,7 +32,6 @@ export default class MyDocument extends Document {
               </Fragment>
             )}
 
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta httpEquiv="Content-Language" content="en" />
             <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
             <link

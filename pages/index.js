@@ -72,5 +72,4 @@ const globalStyles = css.global`
     color: #d35400;
   }
 `
-
 export default Index
