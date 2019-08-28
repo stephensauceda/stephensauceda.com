@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 
-import { COLORS, FONT_FAMILY } from '../lib/constants'
+import { COLORS, FONT_FAMILY } from '../../lib/constants'
 
 const HyperLink = props => (
   <Fragment>
-    <a {...props} />
+    <a {...props} data-testid="link" />
     <style jsx>{styles}</style>
   </Fragment>
 )
