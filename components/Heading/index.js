@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { oneOf } from 'prop-types'
 import css from 'styled-jsx/css'
 
 import { FONT_FAMILY } from '../lib/constants'
@@ -40,5 +41,9 @@ const styles = css.global`
     text-transform: uppercase;
   }
 `
+
+Heading.propTypes = {
+  level: oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']).isRequired
+}
 
 export default Heading

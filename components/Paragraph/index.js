@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import css from 'styled-jsx/css'
 
-import { FONT_FAMILY } from '../lib/constants'
+import { FONT_FAMILY } from '../../lib/constants'
 
 const Paragraph = props => (
   <Fragment>
