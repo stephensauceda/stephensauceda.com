@@ -1,8 +1,8 @@
 import React from 'react'
 import css from 'styled-jsx/css'
-import HyperLink from './HyperLink'
 import clsx from 'clsx'
-import { FONT_FAMILY } from '../lib/constants'
+import HyperLink from '../HyperLink'
+import { FONT_FAMILY } from '../../lib/constants'
 
 const Author = () => (
   <div>
