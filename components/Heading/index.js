@@ -4,20 +4,20 @@ import css from 'styled-jsx/css'
 
 import { FONT_FAMILY } from '../lib/constants'
 
-const renderHeading = props => {
-  switch (props.level) {
+const renderHeading = attrs => {
+  switch (attrs.level) {
     case 'h1':
-      return <h1 {...props} />
+      return <h1 {...attrs} />
     case 'h2':
-      return <h2 {...props} />
+      return <h2 {...attrs} />
     case 'h3':
-      return <h3 {...props} />
+      return <h3 {...attrs} />
     case 'h4':
-      return <h4 {...props} />
+      return <h4 {...attrs} />
     case 'h5':
-      return <h5 {...props} />
+      return <h5 {...attrs} />
     case 'h6':
-      return <h6 {...props} />
+      return <h6 {...attrs} />
   }
 }
 
@@ -43,7 +43,7 @@ const styles = css.global`
 `
 
 Heading.propTypes = {
-  level: oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']).isRequired
+  level: oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
 }
 
 export default Heading
