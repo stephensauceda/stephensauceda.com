@@ -1,5 +1,5 @@
 import React from 'react'
-import Paragraph from '../Paragraph'
+import Paragraph from './'
 import { render, cleanup } from '@testing-library/react'
 
 afterEach(cleanup)

@@ -1,5 +1,5 @@
 import React from 'react'
-import Heading from '../Heading'
+import Heading from './'
 import { render, cleanup } from '@testing-library/react'
 
 afterEach(cleanup)
