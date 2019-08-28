@@ -59,7 +59,7 @@ const ShowNotes = ({ doc }) => {
         <div className="footerWrap">
           <PageFooter />
         </div>
-        <style global>{globalStyles}</style>
+        <style jsx global>{globalStyles}</style>
         <style jsx>{styles}</style>
       </Fragment>
     )
