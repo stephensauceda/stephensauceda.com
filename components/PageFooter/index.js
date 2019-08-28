@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import getYear from 'date-fns/get_year'
-import { FONT_FAMILY } from '../lib/constants'
-import HyperLink from './HyperLink'
+import { FONT_FAMILY } from '../../lib/constants'
+import HyperLink from '../HyperLink'
 
 const PageFooter = () => (
   <Fragment>
