@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { oneOf } from 'prop-types'
 import css from 'styled-jsx/css'
 
-import { FONT_FAMILY } from '../lib/constants'
+import { FONT_FAMILY } from '../../lib/constants'
 
 const renderHeading = attrs => {
   switch (attrs.level) {
@@ -24,7 +24,7 @@ const renderHeading = attrs => {
 const Heading = props => {
   return (
     <Fragment>
-      {renderHeading(props)}
+      {renderHeading({...props, 'data-testid': 'heading'})}
       <style jsx global>
         {styles}
       </style>
@@ -44,6 +44,10 @@ const styles = css.global`
 
 Heading.propTypes = {
   level: oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+}
+
+Heading.defaultProps = {
+  level: 'h1'
 }
 
 export default Heading
