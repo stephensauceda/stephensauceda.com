@@ -8,8 +8,8 @@
   "scripts": {
     "dev": "next",
     "start": "next",
-    "test": "NODE_ENV=test jest --watchAll",
-    "test:ci": "NODE_ENV=test jest"
+    "test": "jest --watchAll --config ./jest/jest.config.js",
+    "test:ci": "jest --config ./jest/jest.config.js"
   },
   "keywords": [],
   "author": "Stephen Sauceda <contact@stephensauceda.com> (https://stephensauceda.com/)",
