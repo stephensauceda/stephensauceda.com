@@ -3,7 +3,7 @@ import parse from 'date-fns/parse'
 import distanceInWords from 'date-fns/distance_in_words'
 
 const RelativeDate = ({ date, timeProps = {} }) => (
-  <time {...timeProps}>
+  <time data-testid="relative-date" {...timeProps}>
     {distanceInWords(new Date(), parse(date), { addSuffix: true })}
   </time>
 )
