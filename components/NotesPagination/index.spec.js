@@ -1,27 +1,19 @@
-import React from 'react'
 import Pagination from './'
-import { render, cleanup } from '@testing-library/react'
+import { cleanup } from '@testing-library/react'
+import { createSetupFunction } from '../../jest/helpers'
+
+const setup = createSetupFunction(Pagination, {
+  router: {
+    query: {
+      page: undefined,
+      pathname: '/notes'
+    }
+  },
+  resultsLength: 10
+})
 
 afterEach(cleanup)
 
-const setup = propOverrides => {
-  const defaultProps = {
-    router: {
-      query: {
-        page: undefined,
-        pathname: '/notes'
-      }
-    },
-    resultsLength: 10
-  }
-
-  const props = {
-    ...defaultProps,
-    ...propOverrides
-  }
-
-  return render(<Pagination {...props} />)
-}
 
 test('should render a next page link', () => {
   const { getByTitle } = setup()
