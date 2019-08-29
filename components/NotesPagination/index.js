@@ -3,8 +3,8 @@ import { withRouter } from 'next/router'
 import css from 'styled-jsx/css'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import { PAGE_SIZE, FONT_FAMILY, COLORS } from '../lib/constants'
-import HyperLink from './HyperLink'
+import { PAGE_SIZE, FONT_FAMILY, COLORS } from '../../lib/constants'
+import HyperLink from '../HyperLink'
 
 function getEarlierPage(page) {
   return page ? page + 1 : 2
@@ -27,11 +27,11 @@ const NotesPagination = ({ router, resultsLength }) => {
       {isFirstPage ? (
           <span><PreviousIcon /></span>
         ) : (
-          <HyperLink className="grey" href={`${basePath}${getNewerPage(page)}`}><PreviousIcon /></HyperLink>
+          <HyperLink title="Previous page" className="grey" href={`${basePath}${getNewerPage(page)}`}><PreviousIcon /></HyperLink>
       )}
   
       {resultsLength >= PAGE_SIZE ? (
-        <HyperLink className="grey" href={`${basePath}${getEarlierPage(page)}`}><NextIcon /></HyperLink>
+        <HyperLink title="Next page" className="grey" href={`${basePath}${getEarlierPage(page)}`}><NextIcon /></HyperLink>
       ) : (
         <span><NextIcon /></span>
       )}
