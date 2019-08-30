@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { Fragment } from 'react'
-import Head from 'next/head'
 import Error from 'next/error'
 import css from 'styled-jsx/css'
-import { RichText } from 'prismic-reactjs'
-import title from 'title'
 import clsx from 'clsx'
 import { getByUID } from '../../lib/api'
 import Heading from '../../components/Heading'
@@ -14,27 +11,16 @@ import renderSlices from '../../lib/renderSlices'
 import Paragraph from '../../components/Paragraph'
 import HyperLink from '../../components/HyperLink'
 import Author from '../../components/Author'
-import linkResolver from '../../lib/linkResolver'
-import { getFirstImageUrl, getFirstSentence } from '../../lib/postHelpers'
+import Metadata from '../../components/Metadata'
+import { getNoteTitle, getNoteUrl } from '../../lib/helpers/notes'
 
-const ShowNotes = ({ doc }) => {
-  if (doc) {
-    const postTitle = title(RichText.asText(doc.data.title))
-    const postUrl = linkResolver(doc)
+const ShowNotes = ({ note }) => {
+  if (note) {
+    const postTitle = getNoteTitle(note)
+    const postUrl = getNoteUrl(note)
     return (
       <Fragment>
-        <Head>
-          <title>{postTitle} | Stephen Sauceda</title>
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@stephensauceda" />
-          <meta name="twitter:creator" content="@stephensauceda" />
-          <meta property="og:title" content={postTitle} />
-          <meta property="og:url" content={`https://stephensauceda.com${postUrl}`} />
-          <meta property="og:image" content={getFirstImageUrl(doc.data.body)} />
-          <meta property="og:description" content={getFirstSentence(doc.data.body)} />
-          <meta property="og:site_name" content="Stephen Sauceda" />
-          <meta property="og:type" content="article" />
-        </Head>
+        <Metadata note={note} />
         <article className="Note h-entry">
           <Heading level="h1" className="p-name">
             {postTitle}
@@ -43,7 +29,7 @@ const ShowNotes = ({ doc }) => {
             <small>
               <HyperLink className={clsx('grey', 'u-url')} href={postUrl}>
                 <RelativeDate
-                  date={doc.first_publication_date}
+                  date={note.first_publication_date}
                   timeProps={{
                     className: 'dt-published'
                   }}
@@ -51,7 +37,7 @@ const ShowNotes = ({ doc }) => {
               </HyperLink>
             </small>
           </Paragraph>
-          <div className="e-content">{renderSlices(doc.data.body)}</div>
+          <div className="e-content">{renderSlices(note.data.body)}</div>
           <footer>
             <Author />
           </footer>
@@ -69,8 +55,8 @@ const ShowNotes = ({ doc }) => {
 }
 
 ShowNotes.getInitialProps = async ({ req, query }) => {
-  const doc = await getByUID(req, query.n)
-  return { doc }
+  const note = await getByUID(req, query.n)
+  return { note }
 }
 
 const styles = css`
