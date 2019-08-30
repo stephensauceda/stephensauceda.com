@@ -20,7 +20,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@stephensauceda/eslint-config": "^11.0.3",
     "clsx": "^1.0.4",
-    "date-fns": "^2.0.1",
+    "date-fns": "^1.29.0",
     "next": "^9.0.0",
     "prismic-javascript": "^2.0.3",
     "prismic-reactjs": "^1.0.0",
