@@ -6,7 +6,6 @@ import css from 'styled-jsx/css'
 import { RichText } from 'prismic-reactjs'
 import title from 'title'
 import clsx from 'clsx'
-import parse from 'date-fns/parse'
 import { getByUID } from '../../lib/api'
 import Heading from '../../components/Heading'
 import RelativeDate from '../../components/RelativeDate'
@@ -22,6 +21,7 @@ const ShowNotes = ({ doc }) => {
   if (doc) {
     const postTitle = title(RichText.asText(doc.data.title))
     const postUrl = linkResolver(doc)
+    const postDate = new Date(doc.first_publication_date)
     return (
       <Fragment>
         <Head>
@@ -44,9 +44,9 @@ const ShowNotes = ({ doc }) => {
             <small>
               <HyperLink className={clsx('grey', 'u-url')} href={postUrl}>
                 <RelativeDate
-                  date={parse(doc.first_publication_date, 'yy-MM-dd')}
+                  date={postDate}
                   timeProps={{
-                    dateTime: parse(doc.first_publication_date, 'yy-MM-dd'),
+                    dateTime: postDate,
                     className: 'dt-published'
                   }}
                 />
