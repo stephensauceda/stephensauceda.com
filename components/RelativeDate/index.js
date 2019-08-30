@@ -1,10 +1,9 @@
 import React from 'react'
-import parse from 'date-fns/parse'
-import distanceInWords from 'date-fns/distance_in_words'
+import formatDistance from 'date-fns/formatDistance'
 
 const RelativeDate = ({ date, timeProps = {} }) => (
   <time data-testid="relative-date" {...timeProps}>
-    {distanceInWords(new Date(), parse(date), { addSuffix: true })}
+    {formatDistance(date, new Date(), { addSuffix: true })}
   </time>
 )
 

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import getYear from 'date-fns/get_year'
+import getYear from 'date-fns/getYear'
 import { FONT_FAMILY } from '../../lib/constants'
 import HyperLink from '../HyperLink'
 
