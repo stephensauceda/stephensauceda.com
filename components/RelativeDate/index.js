@@ -1,9 +1,9 @@
 import React from 'react'
-import formatDistance from 'date-fns/formatDistance'
+import { formatRelativeDateString } from '../../lib/helpers/date'
 
 const RelativeDate = ({ date, timeProps = {} }) => (
-  <time data-testid="relative-date" {...timeProps}>
-    {formatDistance(date, new Date(), { addSuffix: true })}
+  <time data-testid="relative-date" dateTime={date} {...timeProps}>
+    {formatRelativeDateString(date)}
   </time>
 )
 

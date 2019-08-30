@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import Head from 'next/head'
 import css from 'styled-jsx/css'
 import { RichText } from 'prismic-reactjs'
-import format from 'date-fns/format'
+import { formatDateString } from '../../lib/helpers/date'
 import { getPosts } from '../../lib/api'
 import { PAGE_SIZE } from '../../lib/constants'
 import linkResolver from '../../lib/linkResolver'
@@ -21,7 +21,7 @@ const Notes = ({ notes }) => (
       <div className="cardWrapper">
         {notes.map(n => (
           <Heading key={n.id} level="h2">
-            <span>{format(new Date(n.first_publication_date), 'MM.dd.yy')}</span>
+            <span>{formatDateString(n.first_publication_date)}</span>
             <HyperLink className="black" href={linkResolver(n)}>
               {RichText.asText(n.data.title)}
             </HyperLink>

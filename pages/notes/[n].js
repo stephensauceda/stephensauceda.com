@@ -21,7 +21,6 @@ const ShowNotes = ({ doc }) => {
   if (doc) {
     const postTitle = title(RichText.asText(doc.data.title))
     const postUrl = linkResolver(doc)
-    const postDate = new Date(doc.first_publication_date)
     return (
       <Fragment>
         <Head>
@@ -44,9 +43,8 @@ const ShowNotes = ({ doc }) => {
             <small>
               <HyperLink className={clsx('grey', 'u-url')} href={postUrl}>
                 <RelativeDate
-                  date={postDate}
+                  date={doc.first_publication_date}
                   timeProps={{
-                    dateTime: postDate,
                     className: 'dt-published'
                   }}
                 />
