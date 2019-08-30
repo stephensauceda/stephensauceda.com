@@ -1,4 +1,5 @@
 import React from 'react'
+import { objectOf, string, number, shape } from 'prop-types'
 import { withRouter } from 'next/router'
 import css from 'styled-jsx/css'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
@@ -39,6 +40,14 @@ const NotesPagination = ({ router, resultsLength }) => {
       <style jsx>{styles}</style>
     </div>
   ) || null
+}
+
+NotesPagination.propTypes = {
+  router: shape({
+    query: objectOf(string),
+    pathname: string.isRequired
+  }),
+  resultsLength: number.isRequired
 }
 
 const styles = css`

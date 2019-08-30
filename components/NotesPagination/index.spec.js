@@ -5,9 +5,9 @@ import { createSetupFunction } from '../../jest/helpers'
 const setup = createSetupFunction(Pagination, {
   router: {
     query: {
-      page: undefined,
-      pathname: '/notes'
-    }
+      page: undefined
+    },
+    pathname: '/notes'
   },
   resultsLength: 10
 })
@@ -26,7 +26,7 @@ test('should not render a next page link when the are fewer results than the PAG
 })
 
 test('should render a previous page link when on page 2 or greater', () => {
-  const { getByTitle } = setup({ router: { query: { page: 2 } } } )
+  const { getByTitle } = setup({ router: { query: { page: '2' }, pathname: '/notes' } } )
   expect(getByTitle('Previous page')).not.toBeNull()
 })
 
