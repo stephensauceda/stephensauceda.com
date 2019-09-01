@@ -13,7 +13,10 @@ const Metadata = ({ note }) => {
       <meta name="twitter:site" content="@stephensauceda" />
       <meta name="twitter:creator" content="@stephensauceda" />
       <meta property="og:title" content={noteTitle} />
-      <meta property="og:url" content={`https://stephensauceda.com${linkResolver(note)}`} />
+      <meta
+        property="og:url"
+        content={`https://stephensauceda.com${linkResolver(note)}`}
+      />
       <meta property="og:image" content={getFirstImageUrl(note)} />
       <meta property="og:description" content={getFirstSentence(note)} />
       <meta property="og:site_name" content="Stephen Sauceda" />

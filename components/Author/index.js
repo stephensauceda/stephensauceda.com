@@ -14,7 +14,9 @@ const Author = () => (
       height={50}
     />
     <HyperLink rel="author" className={clsx('black', 'p-author', 'h-card')} href="/">
-      <strong><small>Stephen Sauceda</small></strong>
+      <strong>
+        <small>Stephen Sauceda</small>
+      </strong>
     </HyperLink>
     <style jsx>{styles}</style>
   </div>

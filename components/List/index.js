@@ -5,7 +5,11 @@ import { FONT_FAMILY } from '../../lib/constants'
 
 const List = ({ listType, ...props }) => (
   <Fragment>
-    {listType === 'ul' ? <ul {...props} data-testid="list" /> : <ol {...props} data-testid="list" />}
+    {listType === 'ul' ? (
+      <ul {...props} data-testid="list" />
+    ) : (
+      <ol {...props} data-testid="list" />
+    )}
     <style jsx global>
       {styles}
     </style>
@@ -13,7 +17,8 @@ const List = ({ listType, ...props }) => (
 )
 
 const styles = css.global`
-  ul, ol {
+  ul,
+  ol {
     font-family: ${FONT_FAMILY};
   }
 `

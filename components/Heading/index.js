@@ -21,23 +21,29 @@ const renderHeading = attrs => {
   }
 }
 
-const Heading = props => {
-  return (
-    <Fragment>
-      {renderHeading({...props, 'data-testid': 'heading'})}
-      <style jsx global>
-        {styles}
-      </style>
-    </Fragment>
-  )
-}
+const Heading = props => (
+  <Fragment>
+    {renderHeading({ ...props, 'data-testid': 'heading' })}
+    <style jsx global>
+      {styles}
+    </style>
+  </Fragment>
+)
 
 const styles = css.global`
-  h1, h2, h3, h4, h5, h6 {
-    font-family: ${FONT_FAMILY}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: ${FONT_FAMILY};
   }
 
-  h3, h4, h5, h6 {
+  h3,
+  h4,
+  h5,
+  h6 {
     text-transform: uppercase;
   }
 `

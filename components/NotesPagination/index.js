@@ -23,23 +23,44 @@ const NotesPagination = ({ router, resultsLength }) => {
   const basePath = `${router.pathname}?page=`
   const isFirstPage = !page || page === 1
 
-  return !(isFirstPage && resultsLength < PAGE_SIZE) && (
-    <div className="postPagination">
-      {isFirstPage ? (
-          <span><PreviousIcon /></span>
+  return (
+    (!(isFirstPage && resultsLength < PAGE_SIZE) && (
+      <div className="postPagination">
+        {isFirstPage ? (
+          <span>
+            <PreviousIcon />
+          </span>
         ) : (
-          <HyperLink title="Previous page" className="grey" href={`${basePath}${getNewerPage(page)}`}><PreviousIcon /></HyperLink>
-      )}
-  
-      {resultsLength >= PAGE_SIZE ? (
-        <HyperLink title="Next page" className="grey" href={`${basePath}${getEarlierPage(page)}`}><NextIcon /></HyperLink>
-      ) : (
-        <span><NextIcon /></span>
-      )}
-      <style jsx global>{globalStyles}</style>
-      <style jsx>{styles}</style>
-    </div>
-  ) || null
+          <HyperLink
+            title="Previous page"
+            className="grey"
+            href={`${basePath}${getNewerPage(page)}`}
+          >
+            <PreviousIcon />
+          </HyperLink>
+        )}
+
+        {resultsLength >= PAGE_SIZE ? (
+          <HyperLink
+            title="Next page"
+            className="grey"
+            href={`${basePath}${getEarlierPage(page)}`}
+          >
+            <NextIcon />
+          </HyperLink>
+        ) : (
+          <span>
+            <NextIcon />
+          </span>
+        )}
+        <style jsx global>
+          {globalStyles}
+        </style>
+        <style jsx>{styles}</style>
+      </div>
+    )) ||
+    null
+  )
 }
 
 NotesPagination.propTypes = {
@@ -54,10 +75,10 @@ const styles = css`
   .postPagination {
     display: flex;
   }
-  
+
   span {
     font-family: ${FONT_FAMILY};
-    color: ${COLORS.lightGrey}
+    color: ${COLORS.lightGrey};
   }
 `
 

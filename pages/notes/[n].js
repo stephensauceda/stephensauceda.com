@@ -45,7 +45,9 @@ const ShowNotes = ({ note }) => {
         <div className="footerWrap">
           <PageFooter />
         </div>
-        <style jsx global>{globalStyles}</style>
+        <style jsx global>
+          {globalStyles}
+        </style>
         <style jsx>{styles}</style>
       </Fragment>
     )

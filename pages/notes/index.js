@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Fragment } from 'react'
 import Head from 'next/head'
 import css from 'styled-jsx/css'

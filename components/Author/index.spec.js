@@ -6,7 +6,7 @@ afterEach(cleanup)
 
 test('should render my name', () => {
   const { getByText } = render(<Author />)
-  
+
   expect(getByText('Stephen Sauceda')).not.toBe(null)
 })
 

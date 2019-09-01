@@ -14,7 +14,6 @@ const setup = createSetupFunction(Pagination, {
 
 afterEach(cleanup)
 
-
 test('should render a next page link', () => {
   const { getByTitle } = setup()
   expect(getByTitle('Next page')).not.toBeNull()
@@ -26,7 +25,7 @@ test('should not render a next page link when the are fewer results than the PAG
 })
 
 test('should render a previous page link when on page 2 or greater', () => {
-  const { getByTitle } = setup({ router: { query: { page: '2' }, pathname: '/notes' } } )
+  const { getByTitle } = setup({ router: { query: { page: '2' }, pathname: '/notes' } })
   expect(getByTitle('Previous page')).not.toBeNull()
 })
 

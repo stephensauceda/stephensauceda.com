@@ -15,7 +15,7 @@ const styles = css`
     color: ${COLORS.primary};
     text-decoration: none;
     border-bottom: 1px dotted ${COLORS.primary};
-    font-family: ${FONT_FAMILY}
+    font-family: ${FONT_FAMILY};
   }
 
   .black {
