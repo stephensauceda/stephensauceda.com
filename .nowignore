@@ -6,3 +6,4 @@ __tests__
 .env
 .vscode
 .github
+scripts

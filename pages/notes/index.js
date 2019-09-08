@@ -4,49 +4,71 @@ import Head from 'next/head'
 import css from 'styled-jsx/css'
 import { RichText } from 'prismic-reactjs'
 import { formatDateString } from '../../lib/helpers/date'
-import { getPosts } from '../../lib/api'
-import { PAGE_SIZE } from '../../lib/constants'
 import linkResolver from '../../lib/linkResolver'
 import Footer from '../../components/PageFooter'
 import Heading from '../../components/Heading'
 import HyperLink from '../../components/HyperLink'
 import NotesPagination from '../../components/NotesPagination'
+import Loading from '../../components/Loading'
 
-const Notes = ({ notes }) => (
-  <Fragment>
-    <Head>
-      <title>Notes | Stephen Sauceda</title>
-      <meta name="description" content="Some things written by Stephen Sauceda." />
-    </Head>
-    <div className="pageWrapper">
-      <div className="cardWrapper">
-        {notes.map(n => (
-          <Heading key={n.id} level="h2">
-            <span>{formatDateString(n.first_publication_date)}</span>
-            <HyperLink className="black" href={linkResolver(n)}>
-              {RichText.asText(n.data.title)}
-            </HyperLink>
-          </Heading>
-        ))}
+import { useQuery } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
+import { withApollo } from '../../lib/apollo'
 
-        <NotesPagination resultsLength={notes.length} />
+const QUERY = gql`
+  query {
+    allPosts(sortBy: meta_firstPublicationDate_DESC) {
+      edges {
+        node {
+          title
+          _meta {
+            uid
+            type
+            firstPublicationDate
+          }
+        }
+      }
+    }
+  }
+`
+
+const Notes = () => {
+  const { data, loading, error } = useQuery(QUERY)
+  return (
+    <Fragment>
+      <Head>
+        <title>Notes | Stephen Sauceda</title>
+        <meta name="description" content="Some things written by Stephen Sauceda." />
+      </Head>
+      <div className="pageWrapper">
+        <div className="cardWrapper">
+          {loading && <Loading />}
+          {error && <pre>Something went wrong.</pre>}
+          {data && (
+            <Fragment>
+              {data.allPosts.edges.map(n => (
+                <Heading key={n.node._meta.uid} level="h2">
+                  <span>{formatDateString(n.node._meta.firstPublicationDate)}</span>
+                  <HyperLink
+                    className="black"
+                    href="/notes/[n]"
+                    as={linkResolver(n.node._meta)}
+                  >
+                    {RichText.asText(n.node.title)}
+                  </HyperLink>
+                </Heading>
+              ))}
+              <NotesPagination resultsLength={data.allPosts.edges.length} />
+            </Fragment>
+          )}
+        </div>
       </div>
-    </div>
-    <div className="footerWrapper">
-      <Footer />
-    </div>
-    <style jsx>{styles}</style>
-  </Fragment>
-)
-
-Notes.getInitialProps = async ({ req, query }) => {
-  const notes = await getPosts(req, [], {
-    orderings: '[document.first_publication_date desc]',
-    fetch: ['post.title'],
-    pageSize: PAGE_SIZE,
-    page: query.page || 1
-  })
-  return { notes }
+      <div className="footerWrapper">
+        <Footer />
+      </div>
+      <style jsx>{styles}</style>
+    </Fragment>
+  )
 }
 
 const styles = css`
@@ -70,4 +92,4 @@ const styles = css`
   }
 `
 
-export default Notes
+export default withApollo(Notes)

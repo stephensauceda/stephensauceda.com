@@ -2,37 +2,63 @@
 import React, { Fragment } from 'react'
 import Head from 'next/head'
 import css from 'styled-jsx/css'
-import { getSingle } from '../lib/api'
+
+import { useQuery } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
+import { withApollo } from '../lib/apollo'
+
 import Footer from '../components/PageFooter'
 import { FONT_FAMILY } from '../lib/constants'
+import Loading from '../components/Loading'
 
-const Index = ({ doc }) => (
-  <Fragment>
-    <Head>
-      <title>Stephen Sauceda</title>
-      <meta name="description" content="Builder of web things." />
-    </Head>
-    <div className="pageWrapper">
-      <div className="cardWrapper">
-        <div
-          className="h-card"
-          dangerouslySetInnerHTML={{ __html: doc.data.html_content[0].text }}
-        />
+const QUERY = gql`
+  query {
+    allHomepages {
+      edges {
+        node {
+          title
+          html_content
+          _meta {
+            id
+            uid
+          }
+        }
+      }
+    }
+  }
+`
+
+const Index = () => {
+  const { loading, data, error } = useQuery(QUERY)
+  return (
+    <Fragment>
+      <Head>
+        <title>Stephen Sauceda</title>
+        <meta name="description" content="Builder of web things." />
+      </Head>
+      <div className="pageWrapper">
+        <div className="cardWrapper">
+          {loading && <Loading />}
+          {error && <pre>Something went wrong.</pre>}
+          {!loading && data && (
+            <div
+              className="h-card"
+              dangerouslySetInnerHTML={{
+                __html: data.allHomepages.edges[0].node.html_content[0].text
+              }}
+            />
+          )}
+        </div>
       </div>
-    </div>
-    <div className="footerWrapper">
-      <Footer />
-    </div>
-    <style jsx global>
-      {globalStyles}
-    </style>
-    <style jsx>{styles}</style>
-  </Fragment>
-)
-
-Index.getInitialProps = async ({ req }) => {
-  const home = await getSingle(req, 'homepage')
-  return { doc: home.document }
+      <div className="footerWrapper">
+        <Footer />
+      </div>
+      <style jsx global>
+        {globalStyles}
+      </style>
+      <style jsx>{styles}</style>
+    </Fragment>
+  )
 }
 
 const styles = css`
@@ -73,4 +99,4 @@ const globalStyles = css.global`
     color: #d35400;
   }
 `
-export default Index
+export default withApollo(Index)

@@ -1,14 +1,31 @@
 import React, { Fragment } from 'react'
+import Link from 'next/link'
 import css from 'styled-jsx/css'
 
 import { COLORS, FONT_FAMILY } from '../../lib/constants'
 
-const HyperLink = props => (
+function isInternalLink(href) {
+  return href.startsWith('/')
+}
+
+const InternalLink = ({ href, as, ...props }) => (
+  <Fragment>
+    <Link href={href} as={as}>
+      <a {...props} data-testid="link" />
+    </Link>
+    <style jsx>{styles}</style>
+  </Fragment>
+)
+
+const ExternalLink = props => (
   <Fragment>
     <a {...props} data-testid="link" />
     <style jsx>{styles}</style>
   </Fragment>
 )
+
+const HyperLink = props =>
+  isInternalLink(props.href) ? <InternalLink {...props} /> : <ExternalLink {...props} />
 
 const styles = css`
   a {
