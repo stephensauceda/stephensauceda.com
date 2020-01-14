@@ -10,14 +10,12 @@
   ],
   "env": {
     "API_ENDPOINT": "@api_endpoint",
-    "ACCESS_TOKEN": "@access_token",
-    "GRAPHQL_ENDPOINT": "@graphql_endpoint"
+    "ACCESS_TOKEN": "@access_token"
   },
   "build": {
     "env": {
       "API_ENDPOINT": "@api_endpoint",
-      "ACCESS_TOKEN": "@access_token",
-      "GRAPHQL_ENDPOINT": "@graphql_endpoint"
+      "ACCESS_TOKEN": "@access_token"
     }
   },
   "routes": [

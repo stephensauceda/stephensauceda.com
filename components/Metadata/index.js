@@ -15,7 +15,7 @@ const Metadata = ({ note }) => {
       <meta property="og:title" content={noteTitle} />
       <meta
         property="og:url"
-        content={`https://stephensauceda.com${linkResolver(note._meta)}`}
+        content={`https://stephensauceda.com${linkResolver(note)}`}
       />
       <meta property="og:image" content={getFirstImageUrl(note)} />
       <meta property="og:description" content={getFirstSentence(note)} />
