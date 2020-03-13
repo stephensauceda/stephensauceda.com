@@ -30,11 +30,6 @@ const Index = ({ doc }) => (
   </Fragment>
 )
 
-Index.getInitialProps = async ({ req }) => {
-  const home = await getSingle(req, 'homepage')
-  return { doc: home.document }
-}
-
 const styles = css`
   .pageWrapper {
     height: calc(100vh - 5em);
@@ -73,4 +68,9 @@ const globalStyles = css.global`
     color: #d35400;
   }
 `
+export async function getStaticProps() {
+  const home = await getSingle('homepage')
+  return { props: { doc: home.document } }
+}
+
 export default Index

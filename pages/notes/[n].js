@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import Error from 'next/error'
 import css from 'styled-jsx/css'
 import clsx from 'clsx'
-import { getByUID } from '../../lib/api'
+import { getByUID, getPosts } from '../../lib/api'
 import Heading from '../../components/Heading'
 import RelativeDate from '../../components/RelativeDate'
 import PageFooter from '../../components/PageFooter'
@@ -56,11 +56,6 @@ const ShowNotes = ({ note }) => {
   return <Error statusCode={404} />
 }
 
-ShowNotes.getInitialProps = async ({ req, query }) => {
-  const note = await getByUID(req, query.n)
-  return { note }
-}
-
 const styles = css`
   .Note,
   .footerWrap {
@@ -80,5 +75,18 @@ const globalStyles = css.global`
     width: 100%;
   }
 `
+
+export async function getStaticProps({ params }) {
+  const note = await getByUID(params.n)
+  return {
+    props: { note }
+  }
+}
+
+export async function getStaticPaths() {
+  const notes = await getPosts()
+  const paths = notes.map(n => ({ params: { n: n.uid } }))
+  return { paths, fallback: true }
+}
 
 export default ShowNotes

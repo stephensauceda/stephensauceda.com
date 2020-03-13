@@ -42,16 +42,6 @@ const Notes = ({ notes }) => (
   </Fragment>
 )
 
-Notes.getInitialProps = async ({ req, query }) => {
-  const notes = await getPosts(req, [], {
-    orderings: '[document.first_publication_date desc]',
-    fetch: ['post.title'],
-    pageSize: PAGE_SIZE,
-    page: query.page || 1
-  })
-  return { notes }
-}
-
 const styles = css`
   .pageWrapper {
     min-height: calc(100vh - 10em);
@@ -72,5 +62,14 @@ const styles = css`
     margin-right: 0.5em;
   }
 `
+
+export async function getStaticProps() {
+  const notes = await getPosts([], {
+    orderings: '[document.first_publication_date desc]',
+    fetch: ['post.title'],
+    pageSize: PAGE_SIZE
+  })
+  return { props: { notes } }
+}
 
 export default Notes
