@@ -10,7 +10,6 @@ import linkResolver from '../../lib/linkResolver'
 import Footer from '../../components/PageFooter'
 import Heading from '../../components/Heading'
 import HyperLink from '../../components/HyperLink'
-import NotesPagination from '../../components/NotesPagination'
 
 const Notes = ({ notes }) => (
   <Fragment>
@@ -31,8 +30,6 @@ const Notes = ({ notes }) => (
             </HyperLink>
           </Heading>
         ))}
-
-        <NotesPagination resultsLength={notes.length} />
       </div>
     </div>
     <div className="footerWrapper">
