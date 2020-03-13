@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Fragment>
-        <html>
+        <html lang="en">
           <Head>
             {process.env.NODE_ENV === 'production' && (
               <Fragment>
@@ -42,7 +42,10 @@ export default class MyDocument extends Document {
               rel="webmention"
               href="https://webmention.io/stephensauceda.com/webmention"
             />
-            <link rel="pingback" href="https://webmention.io/stephensauceda.com/xmlrpc" />
+            <link
+              rel="pingback"
+              href="https://webmention.io/stephensauceda.com/xmlrpc"
+            />
           </Head>
           <body>
             <Main />

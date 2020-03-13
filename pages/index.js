@@ -4,7 +4,7 @@ import Head from 'next/head'
 import css from 'styled-jsx/css'
 import { getSingle } from '../lib/api'
 import Footer from '../components/PageFooter'
-import { FONT_FAMILY } from '../lib/constants'
+import { FONT_FAMILY, COLORS } from '../lib/constants'
 
 const Index = ({ doc }) => (
   <Fragment>
@@ -14,7 +14,7 @@ const Index = ({ doc }) => (
     </Head>
     <div className="pageWrapper">
       <div className="cardWrapper">
-        <div
+        <main
           className="h-card"
           dangerouslySetInnerHTML={{ __html: doc.data.html_content[0].text }}
         />
@@ -60,12 +60,12 @@ const globalStyles = css.global`
     font-family: ${FONT_FAMILY};
   }
   a {
-    color: #e67e22;
+    color: ${COLORS.primary};
   }
 
   a:visited,
   a:hover {
-    color: #d35400;
+    color: #aa2e00;
   }
 `
 export async function getStaticProps() {
