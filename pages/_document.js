@@ -33,7 +33,7 @@ export default class MyDocument extends Document {
             )}
 
             <meta httpEquiv="Content-Language" content="en" />
-            <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+            <link rel="icon" type="image/x-icon" href="/favicon.ico" />
             <link
               rel="stylesheet"
               href="https://unpkg.com/normalize.css@8.0.0/normalize.css"

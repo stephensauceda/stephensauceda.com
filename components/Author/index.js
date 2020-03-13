@@ -7,7 +7,7 @@ import { FONT_FAMILY } from '../../lib/constants'
 const Author = () => (
   <div>
     <img
-      src="/static/me.jpg"
+      src="/me.jpg"
       alt="A photo of me (Stephen Sauceda)"
       className="u-photo"
       width={50}
