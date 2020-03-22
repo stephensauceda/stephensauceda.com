@@ -23,12 +23,14 @@ const Notes = ({ notes }) => (
     <div className="pageWrapper">
       <div className="cardWrapper">
         {notes.map(n => (
-          <Heading key={n.id} level="h2">
-            <span>{formatDateString(n.first_publication_date)}</span>
-            <HyperLink className="black" href={linkResolver(n)}>
-              {getNoteTitle(n)}
-            </HyperLink>
-          </Heading>
+          <div key={n.id} className="headingWrapper">
+            <Heading level="h2">
+              <span>{formatDateString(n.first_publication_date)}</span>
+              <HyperLink className="black" href={linkResolver(n)}>
+                {getNoteTitle(n)}
+              </HyperLink>
+            </Heading>
+          </div>
         ))}
       </div>
     </div>
@@ -57,6 +59,9 @@ const styles = css`
   }
   span {
     margin-right: 0.5em;
+  }
+  :global(.headingWrapper > *) {
+    display: flex;
   }
 `
 
