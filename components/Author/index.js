@@ -1,41 +1,20 @@
 import React from 'react'
-import css from 'styled-jsx/css'
-import clsx from 'clsx'
-import HyperLink from '../HyperLink'
-import { FONT_FAMILY } from '../../lib/constants'
 
 const Author = () => (
-  <div>
+  <div className="py-4 flex items-center">
     <img
       src="/me.jpg"
       alt="A photo of me (Stephen Sauceda)"
-      className="u-photo"
+      className="u-photo w-auto rounded-full mr-2"
       width={50}
       height={50}
     />
-    <HyperLink rel="author" className={clsx('black', 'p-author', 'h-card')} href="/">
+    <a rel="author" className="black p-autho h-card" href="/">
       <strong>
         <small>Stephen Sauceda</small>
       </strong>
-    </HyperLink>
-    <style jsx>{styles}</style>
+    </a>
   </div>
 )
-
-const styles = css`
-  div {
-    padding: 1em 0;
-    font-family: ${FONT_FAMILY};
-    display: flex;
-    align-items: center;
-  }
-
-  img {
-    width: auto;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 0.5em;
-  }
-`
 
 export default Author

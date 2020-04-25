@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { Fragment } from 'react'
 import Head from 'next/head'
-import css from 'styled-jsx/css'
 import { getSingle } from '../lib/api'
+import PageWrapper from '../components/PageWrapper'
 import Footer from '../components/PageFooter'
-import { FONT_FAMILY, COLORS } from '../lib/constants'
 
 const Index = ({ doc }) => (
   <Fragment>
@@ -12,62 +11,19 @@ const Index = ({ doc }) => (
       <title>Stephen Sauceda</title>
       <meta name="description" content="Builder of web things." />
     </Head>
-    <div className="pageWrapper">
-      <div className="cardWrapper">
-        <main
-          className="h-card"
-          dangerouslySetInnerHTML={{ __html: doc.data.html_content[0].text }}
-        />
+    <PageWrapper>
+      <main
+        className="h-card flex-grow flex items-center"
+        dangerouslySetInnerHTML={{ __html: doc.data.html_content[0].text }}
+      />
+
+      <div className="w-full">
+        <Footer />
       </div>
-    </div>
-    <div className="footerWrapper">
-      <Footer />
-    </div>
-    <style jsx global>
-      {globalStyles}
-    </style>
-    <style jsx>{styles}</style>
+    </PageWrapper>
   </Fragment>
 )
 
-const styles = css`
-  .pageWrapper {
-    height: calc(100vh - 5em);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .cardWrapper,
-  .footerWrapper {
-    max-width: 500px;
-    width: 90%;
-    padding: 1em;
-    margin: 0 auto;
-  }
-  .cardWrapper {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`
-
-const globalStyles = css.global`
-  p {
-    font-size: 15px;
-    line-height: 1.6;
-    font-family: ${FONT_FAMILY};
-  }
-  a {
-    color: ${COLORS.primary};
-  }
-
-  a:visited,
-  a:hover {
-    color: #aa2e00;
-  }
-`
 export async function getStaticProps() {
   const home = await getSingle('homepage')
   return { props: { doc: home.document } }

@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { Fragment } from 'react'
 import Head from 'next/head'
-import css from 'styled-jsx/css'
 import { formatDateString } from '../../lib/helpers/date'
 import { getNoteTitle } from '../../lib/helpers/notes'
 import { getPosts } from '../../lib/api'
 import { PAGE_SIZE } from '../../lib/constants'
 import linkResolver from '../../lib/linkResolver'
+import PageWrapper from '../../components/PageWrapper'
 import Footer from '../../components/PageFooter'
-import Heading from '../../components/Heading'
-import HyperLink from '../../components/HyperLink'
 
 const Notes = ({ notes }) => (
   <Fragment>
@@ -20,50 +18,25 @@ const Notes = ({ notes }) => (
         content="Some things written by Stephen Sauceda."
       />
     </Head>
-    <div className="pageWrapper">
-      <div className="cardWrapper">
+    <PageWrapper>
+      <main className="flex-grow flex flex-col pt-20">
         {notes.map(n => (
-          <div key={n.id} className="headingWrapper">
-            <Heading level="h2">
-              <span>{formatDateString(n.first_publication_date)}</span>
-              <HyperLink className="black" href={linkResolver(n)}>
-                {getNoteTitle(n)}
-              </HyperLink>
-            </Heading>
-          </div>
+          <h2 key={n.id} className="flex mb-4">
+            <span className="mr-2">
+              {formatDateString(n.first_publication_date)}
+            </span>
+            <a className="black" href={linkResolver(n)}>
+              {getNoteTitle(n)}
+            </a>
+          </h2>
         ))}
+      </main>
+      <div className="w-full">
+        <Footer />
       </div>
-    </div>
-    <div className="footerWrapper">
-      <Footer />
-    </div>
-    <style jsx>{styles}</style>
+    </PageWrapper>
   </Fragment>
 )
-
-const styles = css`
-  .pageWrapper {
-    min-height: calc(100vh - 10em);
-    padding-top: 5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .cardWrapper,
-  .footerWrapper {
-    max-width: 500px;
-    width: 90%;
-    padding: 1em;
-    margin: 0 auto;
-  }
-  span {
-    margin-right: 0.5em;
-  }
-  :global(.headingWrapper > *) {
-    display: flex;
-  }
-`
 
 export async function getStaticProps() {
   const notes = await getPosts([], {

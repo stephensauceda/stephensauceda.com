@@ -1,24 +1,16 @@
 import React, { Fragment } from 'react'
 import getYear from 'date-fns/getYear'
-import { FONT_FAMILY } from '../../lib/constants'
-import HyperLink from '../HyperLink'
 
 const PageFooter = () => (
   <Fragment>
-    <footer>
+    <footer className="py-4">
       <small>
         Copyright &copy; {`${getYear(Date.now())}`}{' '}
-        <HyperLink href="/" className="black">
+        <a href="/" className="black">
           Stephen Sauceda
-        </HyperLink>
+        </a>
       </small>
     </footer>
-    <style jsx>{`
-      footer {
-        padding: 1em 0;
-        font-family: ${FONT_FAMILY};
-      }
-    `}</style>
   </Fragment>
 )
 

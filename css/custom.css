@@ -1,0 +1,15 @@
+a.black {
+  @apply text-black border-0;
+}
+
+a.black:hover {
+  @apply text-orange-500;
+}
+
+a.grey {
+  @apply text-gray-700 border-0;
+}
+
+a.grey:hover {
+  @apply text-black;
+}
