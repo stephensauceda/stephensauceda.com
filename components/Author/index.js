@@ -8,6 +8,7 @@ const Author = () => (
       className="u-photo w-auto rounded-full mr-2"
       width={50}
       height={50}
+      loading="lazy"
     />
     <a rel="author" className="black p-autho h-card" href="/">
       <strong>
