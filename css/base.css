@@ -30,7 +30,11 @@ p {
 }
 
 a {
-  @apply no-underline border-b border-dotted border-teal-700 text-teal-700;
+  @apply no-underline border-b border-dotted border-sms-primary text-sms-primary;
+}
+
+a:hover {
+  @apply text-teal-900;
 }
 
 figure {

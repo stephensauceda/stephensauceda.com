@@ -3,11 +3,11 @@ a.black {
 }
 
 a.black:hover {
-  @apply text-teal-700;
+  @apply text-sms-primary;
 }
 
 a.grey {
-  @apply text-gray-700 border-0;
+  @apply text-sms-secondary border-0;
 }
 
 a.grey:hover {
