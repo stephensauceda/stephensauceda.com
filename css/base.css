@@ -10,6 +10,14 @@ h3 {
   @apply text-xl font-bold;
 }
 
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mb-2;
+}
+
 h3,
 h4,
 h5,
@@ -18,11 +26,15 @@ h6 {
 }
 
 p {
-  @apply mb-2 leading-relaxed;
+  @apply mb-4 leading-relaxed;
 }
 
 a {
   @apply text-orange-500 no-underline border-b border-dotted border-orange-500;
+}
+
+figure {
+  @apply mb-4;
 }
 
 img {
