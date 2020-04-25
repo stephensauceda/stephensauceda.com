@@ -30,7 +30,7 @@ p {
 }
 
 a {
-  @apply text-orange-500 no-underline border-b border-dotted border-orange-500;
+  @apply no-underline border-b border-dotted border-teal-700 text-teal-700;
 }
 
 figure {

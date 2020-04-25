@@ -3,7 +3,7 @@ a.black {
 }
 
 a.black:hover {
-  @apply text-orange-500;
+  @apply text-teal-700;
 }
 
 a.grey {
