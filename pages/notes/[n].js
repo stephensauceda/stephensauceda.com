@@ -8,7 +8,18 @@ import renderSlices from '../../lib/renderSlices'
 import PageWrapper from '../../components/PageWrapper'
 import Author from '../../components/Author'
 import Metadata from '../../components/Metadata'
-import { getNoteTitle, getNoteUrl } from '../../lib/helpers/notes'
+import ReadingTime from '../../components/ReadingTime'
+import {
+  getNoteTitle,
+  getNoteUrl,
+  getTextSlices,
+  combineTextSlices
+} from '../../lib/helpers/notes'
+
+function getWordCount(note) {
+  const text = combineTextSlices(getTextSlices(note))
+  return text.match(/\w+/g).length
+}
 
 const ShowNotes = ({ note }) => {
   if (note) {
@@ -31,6 +42,10 @@ const ShowNotes = ({ note }) => {
                       }}
                     />
                   </a>
+                </small>{' '}
+                -{' '}
+                <small>
+                  <ReadingTime wordCount={getWordCount(note.data.body)} />
                 </small>
               </p>
               <div className="e-content">{renderSlices(note.data.body)}</div>
