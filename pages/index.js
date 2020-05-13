@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { Fragment } from 'react'
 import Head from 'next/head'
-import { getSingle } from '../lib/api'
-import PageWrapper from '../components/PageWrapper'
-import Footer from '../components/PageFooter'
+import { getSingle } from 'lib/api'
+import PageWrapper from 'components/PageWrapper'
+import Footer from 'components/PageFooter'
 
 const Index = ({ doc }) => (
   <Fragment>

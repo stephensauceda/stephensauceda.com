@@ -1,20 +1,20 @@
 /* eslint-disable react/prop-types */
 import React, { Fragment } from 'react'
 import Error from 'next/error'
-import { getByUID, getPosts } from '../../lib/api'
-import RelativeDate from '../../components/RelativeDate'
-import PageFooter from '../../components/PageFooter'
-import renderSlices from '../../lib/renderSlices'
-import PageWrapper from '../../components/PageWrapper'
-import Author from '../../components/Author'
-import Metadata from '../../components/Metadata'
-import ReadingTime from '../../components/ReadingTime'
+import { getByUID, getPosts } from 'lib/api'
+import RelativeDate from 'components/RelativeDate'
+import PageFooter from 'components/PageFooter'
+import renderSlices from 'lib/renderSlices'
+import PageWrapper from 'components/PageWrapper'
+import Author from 'components/Author'
+import Metadata from 'components/Metadata'
+import ReadingTime from 'components/ReadingTime'
 import {
   getNoteTitle,
   getNoteUrl,
   getTextSlices,
   combineTextSlices
-} from '../../lib/helpers/notes'
+} from 'lib/helpers/notes'
 
 function getWordCount(note) {
   const text = combineTextSlices(getTextSlices(note))

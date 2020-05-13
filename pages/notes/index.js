@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { Fragment } from 'react'
 import Head from 'next/head'
-import { formatDateString } from '../../lib/helpers/date'
-import { getNoteTitle } from '../../lib/helpers/notes'
-import { getPosts } from '../../lib/api'
-import { PAGE_SIZE } from '../../lib/constants'
-import linkResolver from '../../lib/linkResolver'
-import PageWrapper from '../../components/PageWrapper'
-import Footer from '../../components/PageFooter'
+import { formatDateString } from 'lib/helpers/date'
+import { getNoteTitle } from 'lib/helpers/notes'
+import { getPosts } from 'lib/api'
+import { PAGE_SIZE } from 'lib/constants'
+import linkResolver from 'lib/linkResolver'
+import PageWrapper from 'components/PageWrapper'
+import Footer from 'components/PageFooter'
 
 const Notes = ({ notes }) => (
   <Fragment>

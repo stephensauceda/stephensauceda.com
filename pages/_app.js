@@ -1,6 +1,6 @@
 import React from 'react'
 import NextApp from 'next/app'
-import '../css/site.css'
+import 'css/site.css'
 
 class App extends NextApp {
   render() {

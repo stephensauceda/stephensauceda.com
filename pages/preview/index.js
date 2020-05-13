@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
 import Router, { withRouter } from 'next/router'
-import linkResolver from '../../lib/linkResolver'
-import { client } from '../../lib/api'
+import linkResolver from 'lib/linkResolver'
+import { client } from 'lib/api'
 
 class Preview extends Component {
   componentDidMount() {
