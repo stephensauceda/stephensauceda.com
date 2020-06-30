@@ -1,3 +1,12 @@
+.pageWrap {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1) 10rem
+    ),
+    url('/double-bubble-outline.png');
+  background-repeat: repeat-x;
+}
+
 a.black {
   @apply text-black border-0;
 }
