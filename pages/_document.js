@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Fragment>
-        <html lang="en">
+        <Html lang="en">
           <Head>
             {process.env.NODE_ENV === 'production' && (
               <Fragment>
@@ -59,7 +59,7 @@ export default class MyDocument extends Document {
               src="https://static.cdn.prismic.io/prismic.min.js"
             />
           </body>
-        </html>
+        </Html>
       </Fragment>
     )
   }
