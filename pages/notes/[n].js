@@ -21,7 +21,7 @@ function getWordCount(note) {
   return text.match(/\w+/g).length
 }
 
-const ShowNotes = ({ note }) => {
+function ShowNotes({ note }) {
   if (note) {
     const postTitle = getNoteTitle(note)
     const postUrl = getNoteUrl(note)
