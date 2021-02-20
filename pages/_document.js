@@ -46,18 +46,6 @@ export default class MyDocument extends Document {
           <body>
             <Main />
             <NextScript />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-              window.prismic = {
-                endpoint: 'https://stephensauceda.cdn.prismic.io/api/v2'
-              }`
-              }}
-            />
-            <script
-              type="text/javascript"
-              src="https://static.cdn.prismic.io/prismic.min.js"
-            />
           </body>
         </Html>
       </Fragment>

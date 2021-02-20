@@ -6,19 +6,3 @@
     url('/funky-lines.png');
   background-repeat: repeat-x;
 }
-
-a.black {
-  @apply text-black border-0;
-}
-
-a.black:hover {
-  @apply text-sms-primary;
-}
-
-a.grey {
-  @apply text-sms-secondary border-0;
-}
-
-a.grey:hover {
-  @apply text-black;
-}
