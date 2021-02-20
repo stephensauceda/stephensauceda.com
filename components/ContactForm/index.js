@@ -82,7 +82,7 @@ function ContactForm({ onClose }) {
             <button
               type="submit"
               disabled={disabled}
-              className="border border-gray-500 px-2 py-1"
+              className="border border-black px-2 py-1 hover:bg-black hover:text-white transition-colors"
             >
               Send it!
             </button>
