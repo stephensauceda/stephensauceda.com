@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
+import clsx from 'clsx'
 import React, { Fragment } from 'react'
-import { IoCloseCircleOutline } from 'react-icons/io5'
+import { IoCloseCircleOutline as Close } from 'react-icons/io5'
 
 function ContactForm({ onClose }) {
-  const [message, setMessage] = React.useState('')
+  const [message, setMessage] = React.useState(null)
   const [inputs, setInputs] = React.useState({
     email: '',
     message: ''
@@ -24,7 +25,6 @@ function ContactForm({ onClose }) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify(inputs)
     })
@@ -34,9 +34,9 @@ function ContactForm({ onClose }) {
           message: ''
         })
 
-        setMessage('I got your message! Thanks!')
+        setMessage({ type: 'success', text: 'I got your message! Thanks!' })
       })
-      .catch(err => setMessage(err.message))
+      .catch(err => setMessage({ type: 'error', text: err.message }))
   }
 
   const disabled = !inputs.message || !inputs.email
@@ -49,7 +49,7 @@ function ContactForm({ onClose }) {
           onClick={onClose}
           className="absolute top-0 right-0 text-3xl p-4"
         >
-          <IoCloseCircleOutline />
+          <Close />
         </a>
         <div className="p-4 flex-grow flex flex-col justify-center max-w-xl mx-auto w-full">
           <p>
@@ -87,7 +87,16 @@ function ContactForm({ onClose }) {
               Send it!
             </button>
           </form>
-          {message && <p>{message}</p>}
+          {message && (
+            <p
+              className={clsx('py-4', {
+                'text-green-500': message.type === 'success',
+                'text-red-500': message.type === 'error'
+              })}
+            >
+              {message.text}
+            </p>
+          )}
         </div>
       </div>
     </Fragment>
