@@ -51,7 +51,7 @@ function ContactForm({ onClose }) {
         >
           <IoCloseCircleOutline />
         </a>
-        <div className="p-4 flex-grow flex flex-col justify-center">
+        <div className="p-4 flex-grow flex flex-col justify-center max-w-xl mx-auto w-full">
           <p>
             <strong>Get in touch.</strong>
           </p>
