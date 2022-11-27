@@ -1,8 +1,7 @@
 {
-  "name": "stephen-11ty",
+  "name": "stephensauceda.com",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "My personal site (currently) built with Eleventy",
   "scripts": {
     "start": "npm-run-all -p dev:*",
     "build": "run-s build:*",
@@ -11,8 +10,7 @@
     "build:11ty": "npx @11ty/eleventy",
     "build:css": "npx tailwindcss -i src/assets/css/main.css -o out/assets/css/main.css --minify"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Stephen Sauceda <contact@stephensauceda.com> (https://stephensauceda.com)",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2",
