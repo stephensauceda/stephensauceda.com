@@ -11,6 +11,7 @@ module.exports = function (eleventyConfig) {
       input: 'src',
       output: 'out',
       layouts: '_layouts',
+      includes: '_partials',
     },
   }
 }
