@@ -1,6 +1,6 @@
 export async function onRequestPost({ request }) {
-  const { h, name, content } = await request.json()
-  console.log({ name, content })
+  const data = await request.json()
+  console.log({ data })
   const response = new Response('post created', {
     status: 201,
   })
