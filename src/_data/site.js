@@ -12,5 +12,9 @@ module.exports = {
       url: '/archive',
       label: 'Archive',
     },
+    {
+      url: '/feed.xml',
+      label: 'RSS',
+    },
   ],
 }
