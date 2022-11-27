@@ -7,6 +7,7 @@ export async function onRequestPost({ request, env }) {
     auth: env.GITHUB_TOKEN,
   })
   const data = await request.json()
+  console.log({ received: data })
   const title = data.properties.name[0]
   const content = data.properties.content[0].html
 
@@ -22,6 +23,7 @@ export async function onRequestPost({ request, env }) {
   fileContent.push(content)
 
   try {
+    console.log('Attempting to create new post...')
     octokit.repos.createOrUpdateFileContents({
       owner: 'stephensauceda',
       repo: 'stephensauceda.com',
@@ -39,9 +41,8 @@ export async function onRequestPost({ request, env }) {
     return response
   } catch (error) {
     console.log(error)
-    return new Response('something went wrong', {
-      status: 500,
-      body: JSON.stringify(error),
+    return new Response(JSON.stringify(error), {
+      status: 400,
     })
   }
 }
