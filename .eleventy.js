@@ -1,5 +1,5 @@
 const Image = require('@11ty/eleventy-img')
-const { date } = require('./filters/date')
+const date = require('./filters/date')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets/images')

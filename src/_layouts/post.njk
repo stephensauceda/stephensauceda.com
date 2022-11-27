@@ -8,10 +8,8 @@ layout: 'base.njk'
     <h1 class="p-name text-4xl mb-4">{{title}}</h1>
     <p class="mt-0"><small><a class="u-url" href="{{page.url}}"><time class="dt-published" datetime="{{page.date | date('YYYY-MM-DD') }}">{{page.date | date}}</time></a></small></p>
   </header>
-
-  {% if imageSrc %}
-    {% image imageSrc, imageAlt %}
-  {% endif %}
+  
+  {% image imageSrc, imageAlt %}
   
   <div class="e-content">
     {{content | safe}}
