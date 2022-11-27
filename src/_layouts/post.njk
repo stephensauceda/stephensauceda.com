@@ -9,7 +9,9 @@ layout: 'base.njk'
     <p class="mt-0"><small><a class="u-url" href="{{page.url}}"><time class="dt-published" datetime="{{page.date | date('YYYY-MM-DD') }}">{{page.date | date}}</time></a></small></p>
   </header>
   
-  {% image imageSrc, imageAlt %}
+  {% if imageSrc %}
+    {% image imageSrc, imageAlt %}
+  {% endif %}
   
   <div class="e-content">
     {{content | safe}}
