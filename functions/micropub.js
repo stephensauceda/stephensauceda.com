@@ -29,7 +29,7 @@ export async function onRequestPost({ request, env }) {
       repo: 'stephensauceda.com',
       message: 'Adding post: ' + title,
       path: 'src/archive/' + fileName + '.md',
-      content: Buffer.from(fileContent.join('\n')).toString('base64'),
+      content: btoa(fileContent.join('\n')),
     })
 
     const response = new Response('post created', {
