@@ -2,11 +2,10 @@ import { Octokit } from '@octokit/rest'
 import slugify from '@sindresorhus/slugify'
 import date from '../filters/date'
 
-const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
-})
-
-export async function onRequestPost({ request }) {
+export async function onRequestPost({ request, env }) {
+  const octokit = new Octokit({
+    auth: env.GITHUB_TOKEN,
+  })
   const data = await request.json()
   const title = data.properties.name[0]
   const content = data.properties.content[0].html
@@ -27,7 +26,7 @@ export async function onRequestPost({ request }) {
       owner: 'stephensauceda',
       repo: 'stephensauceda.com',
       message: 'Adding post: ' + title,
-      path: 'src/archive/' + filename + '.md',
+      path: 'src/archive/' + fileName + '.md',
       content: Buffer.from(fileContent.join('\n')).toString('base64'),
     })
 
