@@ -1,0 +1,9 @@
+<nav>
+  <ul class="flex justify-center">
+    {%- for item in navigation -%}
+    <li class="mr-4">
+      <a class="text-gray-500" href="{{item.url}}"><small>{{item.label}}</small></a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</nav>

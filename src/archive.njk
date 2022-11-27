@@ -1,0 +1,14 @@
+---
+title: Archive
+layout: 'base.njk'
+---
+
+<h1 class="font-bold text-4xl mb-4">{{title}}</h1>
+<ul class="list-none px-0">
+  {%- for post in collections.archive | reverse -%}
+    <li class="mb-8">
+      <a class="text-2xl font-bold hover:text-orange-500" href="{{post.url}}">{{post.data.title}}</a>
+      <p><small>{{post.date | date}}</small></p>
+    </li>
+  {%- endfor -%}
+</ul>
