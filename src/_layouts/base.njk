@@ -12,6 +12,8 @@
   <link rel="micropub" href="{{'/micropub' | absoluteUrl(site.url) }}">
   <link rel="stylesheet" href="/assets/css/main.css">
   <title>{{title}} | {{site.domain}}</title>
+
+  {% include 'seo.njk' %}
 </head>
 <body>
   <div class="flex flex-col min-h-screen px-4 py-4 mx-auto">
