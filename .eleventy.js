@@ -9,6 +9,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginRss)
 
+  eleventyConfig.addLayoutAlias('base', 'base.njk')
+  eleventyConfig.addLayoutAlias('post', 'post.njk')
+
   return {
     dir: {
       input: 'src',
