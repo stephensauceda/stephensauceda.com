@@ -4,6 +4,8 @@ const pluginRss = require('@11ty/eleventy-plugin-rss')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets/images')
+  eleventyConfig.addPassthroughCopy({ 'src/robots.txt': '/robots.txt' })
+
   eleventyConfig.addFilter('date', date)
   eleventyConfig.addNunjucksAsyncShortcode('image', image)
 
