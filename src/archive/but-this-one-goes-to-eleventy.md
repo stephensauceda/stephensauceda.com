@@ -19,7 +19,7 @@ There is, of course, a difference between a "Jamstack" site and just a regular o
 
 This one I stand by, but again, I was sort of painting with broad strokes (something I do quite often). I was once again referencing the idea of a CMS as an API (or in the case of Next.js, it's "OTB" ways of dealing with Markdown/MDX, or at least the ones I've come across). This also assumes I wanted to use React. Which, I did. But I got over it. I love React. But once I let it go to move on to the convenience of using a full-on CMS like Ghost, it was easier to let go of the idea of COMPONENTS FOR EVERYTHING!!!
 
-Eleventy (and other SSGs) don't do `__dangerouslySetInnerHTML` because, wait for it, it don't use React. And sense the long-prevailing idea of my personal site has been "sparse, almost-brutally so" amounts of CSS, I don't know why I was so hellbent on components anyway. A content-driven site (like a blog) isn't going to have a ton of functionality, so components only really stand to scope styles. But here's the thing. This is the entirety of the "custom css" I've written for this site:
+Eleventy (and other SSGs) don't do `__dangerouslySetInnerHTML` because, wait for it, it don't use React. And since the long-prevailing idea of my personal site has been "sparse, almost-brutally so" amounts of CSS, I don't know why I was so hellbent on components anyway. A content-driven site (like a blog) isn't going to have a ton of functionality, so components only really stand to scope styles. But here's the thing. This is the entirety of the "custom css" I've written for this site:
 
 ```css
 body {
