@@ -76,7 +76,7 @@ layout: base
         <ol class="list-decimal pl-4 marker:text-[#6b7280]">
           {%- for reply in replies -%}
             <li class="text-sm mb-8 border-b pb-8 p-comment h-entry">
-              <div class="mb-4 text-sm e-content">
+              <div class="mb-4 text-sm e-content line-clamp-3">
                 {{ reply.content.html | safe }}
               </div>
               <div class="flex items-center">
