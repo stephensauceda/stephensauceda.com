@@ -1,12 +1,15 @@
 const image = require('./shortcodes/image')
-const date = require('./filters/date')
+const filters = require('./filters')
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/assets/images')
   eleventyConfig.addPassthroughCopy({ 'src/robots.txt': '/robots.txt' })
 
-  eleventyConfig.addFilter('date', date)
+  Object.keys(filters).forEach(key => {
+    eleventyConfig.addFilter(key, filters[key])
+  })
+
   eleventyConfig.addNunjucksAsyncShortcode('image', image)
 
   eleventyConfig.addPlugin(pluginRss)
