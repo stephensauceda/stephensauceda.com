@@ -38,15 +38,15 @@ layout: base
       <h4 class="font-bold text-2xl mb-2 mt-0">Webmentions</h4>
 
       {% if likesSize > 0 %}
-        <details>
+        <details class="p-comment h-entry">
           <summary>
-            <h5 class="inline-block font-bold text-xl mb-4">{{ likesSize }} like{% if likesSize !== 1 %}s{% endif%}</h5>
+            <h5 class="inline-block font-bold text-xl mb-4 p-name">{{ likesSize }} like{% if likesSize !== 1 %}s{% endif%}</h5>
           </summary>
           {%- for like in likes -%}
             <div class="prose">
               <ol class="list-none pl-4 marker:text-[#6b7280]">
                 <li class="text-sm mb-8">
-                  <a href="{{like['wm-source']}}">#</a> Liked by <a class="inline-block mb-1" href="{{like.author.url}}">{{like.author.name}}</a>.
+                  <a href="{{like['wm-source']}}">#</a> Liked by <a class="inline-block mb-1 p-author u-url p-name" href="{{like.author.url}}">{{like.author.name}}</a>.
                 </li>
               </ol>
             </div>
@@ -55,7 +55,7 @@ layout: base
       {% endif %}
 
       {% if repostsSize > 0 %}
-        <details>
+        <details class="p-comment h-entry">
           <summary>
             <h5 class="inline-block font-bold text-xl mb-4">{{ repostsSize }} shares{% if repostsSize !== 1 %}s{% endif%}</h5>
           </summary>
@@ -63,7 +63,7 @@ layout: base
             <div class="prose">
               <ol class="list-none pl-4 marker:text-[#6b7280]">
                 <li class="text-sm mb-8">
-                  <a href="{{repost['wm-source']}}">#</a> Shared by <a class="inline-block mb-1" href="{{repost.author.url}}">{{repost.author.name}}</a>.
+                  <a href="{{repost['wm-source']}}">#</a> Shared by <a class="inline-block mb-1 p-author u-url p-name" href="{{repost.author.url}}">{{repost.author.name}}</a>.
                 </li>
               </ol>
             </div>
@@ -75,14 +75,14 @@ layout: base
         <h5 class="font-bold text-xl mb-4">Replies</h5>
         <ol class="list-decimal pl-4 marker:text-[#6b7280]">
           {%- for reply in replies -%}
-            <li class="text-sm mb-8 border-b pb-8">
-              <div class="mb-4 text-sm">
+            <li class="text-sm mb-8 border-b pb-8 p-comment h-entry">
+              <div class="mb-4 text-sm e-content">
                 {{ reply.content.html | safe }}
               </div>
               <div class="flex items-center">
                 {%if reply.author.photo %}<img loading="lazy" class="m-0 w-[40px] rounded-full mr-2" src="{{reply.author.photo}}" />{% endif %}
                 <div class="flex flex-col">
-                  <a class="block mr-2 mb-1" href="{{reply.author.url}}">{{reply.author.name}}</a>
+                  <a class="block mr-2 mb-1 p-author p-name u-url" href="{{reply.author.url}}">{{reply.author.name}}</a>
                   <a class="block text-xs" href="{{reply['wm-source']}}" class="block"> View original</a>
                 </div>
               </div>
