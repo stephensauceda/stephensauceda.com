@@ -10,6 +10,7 @@ export async function onRequestPost({ request, env }) {
   console.log({ received: data })
   const title = data.properties.name[0]
   const content = data.properties.content[0].html
+  const categories = data.properties.category
 
   const fileName = slugify(title)
   let fileContent = []
@@ -18,6 +19,12 @@ export async function onRequestPost({ request, env }) {
     fileContent.push('---')
     fileContent.push('date: ' + date(new Date(), 'YYYY-MM-DD'))
     fileContent.push('title: ' + title)
+    if (categories?.length > 0) {
+      fileContent.push('tags:')
+      categories.forEach(category => {
+        fileContent.push('\t' + category)
+      })
+    }
     fileContent.push('---')
   }
   fileContent.push(content)
