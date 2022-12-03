@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "My personal site (currently) built with Eleventy",
   "scripts": {
+    "prestart": "npm run clean",
     "start": "npm-run-all -p dev:*",
     "build": "run-s build:*",
     "dev:11ty": "npx @11ty/eleventy --serve",
     "dev:css": "npx tailwindcss -i src/assets/css/main.css -o out/assets/css/main.css --watch",
     "build:11ty": "npx @11ty/eleventy",
-    "build:css": "npx tailwindcss -i src/assets/css/main.css -o out/assets/css/main.css --minify"
+    "build:css": "npx tailwindcss -i src/assets/css/main.css -o out/assets/css/main.css --minify",
+    "clean": "npx rimraf out"
   },
   "author": "Stephen Sauceda <contact@stephensauceda.com> (https://stephensauceda.com)",
   "license": "ISC",
@@ -17,6 +19,7 @@
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.8",
+    "rimraf": "^3.0.2",
     "tailwindcss": "^3.2.4"
   },
   "dependencies": {
