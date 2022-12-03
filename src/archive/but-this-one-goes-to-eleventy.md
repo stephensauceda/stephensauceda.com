@@ -3,6 +3,9 @@ title: But This One Goes To Eleventy
 date: 2022-11-27
 imageSrc: https://www.11ty.dev/img/logo-github.svg
 imageAlt: The Eleventy logo
+tags:
+  - web development
+  - indieweb
 ---
 
 So, [this post](https://stephensauceda.com/archive/building-a-new-house/) is out of date now. I've just finished making this site an [Eleventy](https://11ty.dev) site. In the process, I've (somewhat obviously) changed some opinions I spouted in that post. Let's go through some of them:

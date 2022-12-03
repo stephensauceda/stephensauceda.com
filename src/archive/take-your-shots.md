@@ -3,6 +3,8 @@ title: Take Your Shots
 date: 2021-01-13
 imageSrc: https://images.unsplash.com/photo-1486882430381-e76d701e0a3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDI0fHxiYXNrZXRiYWxsJTIwaG9vcHxlbnwwfHx8fDE2NjQ0OTg3NDc&ixlib=rb-1.2.1
 imageAlt: A basketball hoop
+tags:
+  - personal
 ---
 
 I wasn’t a developer.

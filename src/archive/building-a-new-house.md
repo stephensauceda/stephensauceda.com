@@ -3,6 +3,8 @@ title: Building a New House
 date: 2022-10-30
 imageSrc: https://images.unsplash.com/photo-1572120360610-d971b9d7767c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fEhvdXNlfGVufDB8fHx8MTY2NzE1Nzk4NQ&ixlib=rb-4.0.3
 imageAlt: A house in the fall
+tags:
+  - web development
 ---
 
 A couple days ago, I (once again) moved my personal site around. I actually had it hosted on Tumblr for the passed couple of months for some reason. Well, it was actually because my site is incredibly simple and Tumblr is free so, win. But yesterday, I decided to create the world's simplest [Ghost](https://ghost.org/) theme and self-host it on [DigitalOcean](https://www.digitalocean.com/). It's not free, but it's cheap, it gives me a place to mess around with new things and, perhaps most importantly, it's ["mine"](https://mastodon.social/@matthiasott/109257835234589193) (as much as it can be without running a server in my closet).

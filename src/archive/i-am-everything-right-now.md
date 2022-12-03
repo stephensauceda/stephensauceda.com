@@ -3,6 +3,8 @@ title: I Am Everything Right Now
 date: 2020-03-20
 imageSrc: https://images.unsplash.com/photo-1534330207526-8e81f10ec6fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDI2fHxhbG9uZXxlbnwwfHx8fDE2NjQ0OTg5NDk&ixlib=rb-1.2.1
 imageAlt: A lonely man staring out a window
+tags:
+  - personal
 ---
 
 Everything is weird and frightening [at the moment](https://www.washingtonpost.com/coronavirus/). And I’m feeling all of the emotions.
