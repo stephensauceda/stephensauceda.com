@@ -22,7 +22,7 @@ export async function onRequestPost({ request, env }) {
     if (categories?.length > 0) {
       fileContent.push('tags:')
       categories.forEach(category => {
-        fileContent.push('\t' + category)
+        fileContent.push('  ' + category)
       })
     }
     fileContent.push('---')
