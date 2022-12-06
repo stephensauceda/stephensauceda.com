@@ -6,7 +6,7 @@ layout: base
 <article class="prose mt-12 h-entry">
   <header>
     <h1 class="p-name text-4xl mb-4">{{title}}</h1>
-    <p class="mt-0"><small><a class="u-url" href="{{page.url}}"><time class="dt-published" datetime="{{page.date | date('YYYY-MM-DD') }}">{{page.date | date}}</time></a></small></p>
+    <p class="mt-0"><small><a class="u-url" href="{{page.url | url | absoluteUrl(site.url)}}"><time class="dt-published" datetime="{{page.date | date('YYYY-MM-DD') }}">{{page.date | date}}</time></a></small></p>
   </header>
   
   {% if imageSrc %}
