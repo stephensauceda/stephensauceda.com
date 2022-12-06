@@ -2,11 +2,11 @@
 layout: base
 ---
 
-
+{% set postUrl %}{{ page.url | url | absoluteUrl(site.url) }}{% endset %}
 <article class="prose mt-12 h-entry">
   <header>
     <h1 class="p-name text-4xl mb-4">{{title}}</h1>
-    <p class="mt-0"><small><a class="u-url" href="{{page.url | url | absoluteUrl(site.url)}}"><time class="dt-published" datetime="{{page.date | date('YYYY-MM-DD') }}">{{page.date | date}}</time></a></small></p>
+    <p class="mt-0"><small><a class="u-url" href="{{postUrl}}"><time class="dt-published" datetime="{{page.date | date('YYYY-MM-DD') }}">{{page.date | date}}</time></a></small></p>
   </header>
   
   {% if imageSrc %}
@@ -18,9 +18,18 @@ layout: base
     {% include 'post-footer.njk' %}
   </div>
 
-  {% set webmentionUrl %}{{ page.url | url | absoluteUrl(site.url) }}{% endset %}
+  <div class="mb-4 mt-4">
+    <form action="https://webmention.io/stephensauceda.com/webmention" method="post">
+      <p class="text-sm">Do you have a response to this? <label for="source">Send me the URL</label>.</p>
+      <div class="flex items-center border-b-2 border-gray-200 py-2">
+        <input placeholder="Your URL" type="text" name="source" id="source" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none">
+        <input type="hidden" name="target" id="target" value="{{ postUrl }}">
+        <button class="flex-shrink-0 bg-black hover:bg-gray-700 text-white py-1 px-4 rounded" type="submit">Send</button>
+      </div>
+    </form>
+  </div>
 
-  {% set mentions = webmentions | getWebmentionsForUrl(webmentionUrl) %}  
+  {% set mentions = webmentions | getWebmentionsForUrl(postUrl) %}  
   <!-- Set reposts as mentions that are `repost-of`  -->  
   {% set reposts = mentions | webmentionsByType('repost-of') %}  
   <!-- Count the total reposts -->  
@@ -82,7 +91,7 @@ layout: base
               <div class="flex items-center">
                 {%if reply.author.photo %}<img loading="lazy" class="m-0 w-[40px] rounded-full mr-2" src="{{reply.author.photo}}" />{% endif %}
                 <div class="flex flex-col">
-                  <a class="block text-xs" href="{{reply['url']}}" class="block"><small>{{reply['url'] | domain}}</small></a>
+                  <a class="block text-xs no-underline" href="{{reply['url']}}" class="block"><small>{{reply['url'] | domain}}</small></a>
                   <a class="block mr-2 mb-1 p-author p-name u-url" href="{{reply.author.url}}">{{reply.author.name}}</a>
                 </div>
               </div>
