@@ -6,10 +6,8 @@ on:
     # Runs "at 6am every day" (see https://crontab.guru)
     - cron: '0 6 * * *'
 jobs:
-  build:
+  publish:
     name: Scheduled Build
-    runs-on: ubuntu-latest
     steps:
-      - name: cURL request
-        # Hit the webhook endpoint to rebuild  from the "main" branch
-        run: curl -X POST -d {} ${{ secrets.DEPLOY_HOOK_URL }}
+      - name: Publish
+        uses: ./.github/workflows/publish.yaml
