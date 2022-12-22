@@ -16,9 +16,5 @@ module.exports = {
       url: '/feed.xml',
       label: 'RSS',
     },
-    {
-      url: '/feed.json',
-      label: 'JSON',
-    },
   ],
 }
