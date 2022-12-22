@@ -1,0 +1,29 @@
+---json
+{
+  "permalink": "feed.json",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "Stephen Sauceda",
+    "subtitle": "Web Developer",
+    "language": "en",
+    "url": "https://stephensauceda.com/",
+    "author": {
+      "name": "Stephen Sauceda",
+      "email": "contact@stephensauceda.com"
+    }
+  }
+}
+---
+
+{
+  "posts": [
+    {% for post in collections.posts | reverse %}
+    {%- set absolutePostUrl = post.url | absoluteUrl(metadata.url) %}
+      {
+        "title": "{{ post.data.title }}",
+        "url": "{{ absolutePostUrl }}",
+        "description": "{{ post.data.description }}"
+      }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
