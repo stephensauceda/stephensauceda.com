@@ -35,7 +35,7 @@ export async function onRequestPost({ request, env }) {
       owner: 'stephensauceda',
       repo: 'stephensauceda.com',
       message: 'Adding post: ' + title,
-      path: 'src/archive/' + fileName + '.md',
+      path: 'src/posts/' + new Date().getFullYear + '/' + fileName + '.md',
       content: btoa(fileContent.join('\n')),
     })
 
@@ -43,7 +43,7 @@ export async function onRequestPost({ request, env }) {
       status: 201,
     })
 
-    response.headers.set('Location', 'https://stephensauceda.com/archive')
+    response.headers.set('Location', 'https://stephensauceda.com/posts')
 
     return response
   } catch (error) {
