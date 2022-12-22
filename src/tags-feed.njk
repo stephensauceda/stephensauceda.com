@@ -4,7 +4,7 @@ pagination:
   size: 1
   alias: tag
   filter:
-    - archive
+    - posts
     - all
 permalink: /tags/{{ tag | slug }}.xml
 metadata:
@@ -23,7 +23,7 @@ eleventyComputed:
   <title>{{ title }}</title>
   <link href="{{ feedUrl | absoluteUrl(metadata.url) }}" rel="self"/>
   <link href="{{ metadata.url }}"/>
-  <updated>{{ collections.archive | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ metadata.url }}</id>
   <author>
     <name>{{ metadata.author.name }}</name>
