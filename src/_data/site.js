@@ -9,8 +9,8 @@ module.exports = {
       label: 'Home',
     },
     {
-      url: '/archive',
-      label: 'Archive',
+      url: '/posts',
+      label: 'Posts',
     },
     {
       url: '/feed.xml',
