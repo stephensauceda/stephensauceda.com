@@ -8,7 +8,13 @@ async function image(src, alt) {
   }
 
   const metadata = await Image(src, options)
-  return Image.generateHTML(metadata, { alt })
+  return Image.generateHTML(
+    metadata,
+    { alt },
+    {
+      whitespace: 'inline',
+    }
+  )
 }
 
 module.exports = image
