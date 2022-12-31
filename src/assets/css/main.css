@@ -9,4 +9,9 @@ body {
 .post p > picture {
   display: flex;
   justify-content: center;
+  width: 100%;
+}
+
+.post p > picture > img {
+  width: 100%;
 }
