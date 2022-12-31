@@ -5,3 +5,8 @@
 body {
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 15rem), url('/assets/images/funky-lines.png');
 }
+
+.post p > picture {
+  display: flex;
+  justify-content: center;
+}
