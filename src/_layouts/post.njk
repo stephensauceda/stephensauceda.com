@@ -3,9 +3,9 @@ layout: base
 ---
 
 {% set postUrl %}{{ page.url | url | absoluteUrl(site.url) }}{% endset %}
-<article class="post prose mt-12 h-entry">
+<article class="post prose mt-24 h-entry">
   <header>
-    <h1 class="p-name text-4xl mb-4">{{title}}</h1>
+    <h1 class="p-name text-6xl mb-4">{{title}}</h1>
     <p class="mt-0"><small><a class="u-url" href="{{postUrl}}"><time class="dt-published" datetime="{{page.date | date('YYYY-MM-DD') }}">{{page.date | date}}</time></a></small></p>
   </header>
   
