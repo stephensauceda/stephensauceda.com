@@ -6,7 +6,7 @@
     "prestart": "npm run clean",
     "start": "npm-run-all -p dev:*",
     "build": "run-s build:*",
-    "dev:11ty": "npx @11ty/eleventy --serve",
+    "dev:11ty": "npx @11ty/eleventy --serve --port=3000",
     "dev:css": "npx tailwindcss -i src/assets/css/main.css -o out/assets/css/main.css --watch",
     "build:11ty": "npx @11ty/eleventy",
     "build:css": "npx tailwindcss -i src/assets/css/main.css -o out/assets/css/main.css --minify",
