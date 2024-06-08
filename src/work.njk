@@ -1,0 +1,41 @@
+---
+title: Work
+layout: base
+pagination:
+  data: collections.work
+  size: 10
+  alias: works
+  reverse: true
+---
+
+<h1 class="font-bold text-4xl mb-8">{{ title }}</h1>
+<ul class="list-none px-0">
+  {%- for work in works -%}
+  <li class="mb-8">
+    <a class="text-2xl font-bold hover:text-orange-500" href="{{ work.url }}">{{
+      work.data.title
+    }}</a>
+  </li>
+  {%- endfor -%}
+</ul>
+
+{% if pagination.pages | length > 1 %}
+<nav>
+  <ul class="flex justify-between">
+    <li>
+      {% if pagination.href.previous %}<a
+        class="text-gray-500 underline"
+        href="{{ pagination.href.previous }}"
+        >&lt; Newer</a
+      >{% else %}<span class="text-gray-500">&lt; Newer</span>{% endif %}
+    </li>
+    <li>
+      {% if pagination.href.next %}<a
+        class="text-gray-500 underline"
+        href="{{ pagination.href.next }}"
+        >Older &gt;</a
+      >{% else %}<span class="text-gray-500">Older &gt;</span>{% endif %}
+    </li>
+  </ul>
+</nav>
+{% endif %}

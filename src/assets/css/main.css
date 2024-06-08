@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .fancy-underline {
+    @apply inline-block relative after:absolute after:-z-10 after:bottom-0 after:left-0 after:h-2 after:w-1/2 after:bg-orange-500 after:clip-path-parallelogram after:transition-width after:ease-in-out after:duration-300 hover:after:w-full;
+  }
+}
+
 body {
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 15rem), url('/assets/images/funky-lines.png');
 }
