@@ -1,5 +1,7 @@
-<nav class="flex justify-between">
-  <span class="p-name font-bold">{{ site.name }}</span>
+<nav
+  class="fixed bottom-0 left-0 w-full p-4 border-t flex justify-between bg-white"
+>
+  <a href="/" class="p-name font-bold">{{ site.name }}</a>
   <ul class="flex justify-center">
     {%- for item in site.navigation -%}
     <li class="mr-4">
