@@ -52,8 +52,8 @@ layout: base
     </p>
   </div>
 
-  <div class="prose">
-    <h2>Some thoughts</h2>
+  <div class="prose mb-16">
+    <h2><a href="/posts" class="no-underline font-bold">Some thoughts</a></h2>
     <ul class="list-none px-0">
       {%- for post in collections.posts | reverse -%} {% if (loop.index < 4) %}
       <li class="mb-8 flex justify-between items-center gap-x-4">
@@ -63,6 +63,21 @@ layout: base
         <span class="mb-0">
           <small>{{ post.date | date('MMM DD') }}</small>
         </span>
+      </li>
+      {% endif %} {%- endfor -%}
+    </ul>
+  </div>
+
+  <div class="prose">
+    <h2>
+      <a href="/work" class="no-underline font-bold">Some recent work</a>
+    </h2>
+    <ul class="list-none px-0">
+      {%- for post in collections.work | reverse -%} {% if (loop.index < 4) %}
+      <li class="mb-8 flex justify-between items-center gap-x-4">
+        <a class="font-bold mt-0" href="{{ post.url }}">{{
+          post.data.title
+        }}</a>
       </li>
       {% endif %} {%- endfor -%}
     </ul>
