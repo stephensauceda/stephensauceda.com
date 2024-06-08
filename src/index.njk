@@ -6,7 +6,13 @@ layout: base
 <div class="h-card max-w-prose mx-auto mt-24">
   <div class="p-note mb-8 md:grid md:grid-cols-6 md:gap-x-8">
     <div class="md:order-2 md:col-span-4">
-      <h1 class="font-bold text-4xl mb-4">Hi. I'm Stephen.</h1>
+      <h1 class="font-bold text-4xl mb-4">
+        Hi. I'm
+        <span
+          class="p-name inline-block relative after:absolute after:-z-10 after:bottom-0 after:left-0 after:h-4 after:w-1/2 after:bg-orange-500 after:clip-path-parallelogram after:transition-width after:ease-in-out after:duration-300 hover:after:w-full"
+          >Stephen</span
+        >.
+      </h1>
       <p class="mb-4">
         I'm a dad and husband. I like playing music and shooting little photos
         and videos. I'm also a
@@ -40,7 +46,7 @@ layout: base
     <p class="flex justify-center mb-4 md:order-1 md:col-span-2">
       <img
         loading="lazy"
-        class="u-photo"
+        class="u-photo md:clip-path-parallelogram"
         src="/assets/images/me.jpg"
         alt="Stephen Sauceda"
         width="840"
