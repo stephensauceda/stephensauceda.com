@@ -1,6 +1,6 @@
 ---
 title: Apple News
-date: 2021-01-13
+date: 2021-01-15
 imageSrc: "https://static.stephensauceda.com/applenews.png"
 imageAlt: "Apartment Therapy's Apple News properties"
 ---
