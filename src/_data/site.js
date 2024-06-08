@@ -5,8 +5,8 @@ module.exports = {
   url: 'https://stephensauceda.com',
   navigation: [
     {
-      url: '/',
-      label: 'Home',
+      url: '/work',
+      label: 'Work',
     },
     {
       url: '/posts',

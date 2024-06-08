@@ -1,0 +1,17 @@
+---
+layout: base
+---
+
+{% set postUrl %}{{ page.url | url | absoluteUrl(site.url) }}{% endset %}
+<article class="post prose mt-24 h-entry">
+  <header>
+    <h1 class="p-name text-6xl mb-4">{{ title }}</h1>
+  </header>
+
+  {% if imageSrc %} {% image imageSrc, imageAlt %} {% endif %}
+
+  <div class="e-content">
+    {{ content | safe }}
+    {% include 'post-footer.njk' %}
+  </div>
+</article>
