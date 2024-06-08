@@ -1,8 +1,11 @@
-<nav>
+<nav class="flex justify-between">
+  <span class="p-name font-bold">{{ site.name }}</span>
   <ul class="flex justify-center">
     {%- for item in site.navigation -%}
     <li class="mr-4">
-      <a class="text-gray-500" href="{{item.url}}"><small>{{item.label}}</small></a>
+      <a class="text-gray-500" href="{{ item.url }}"
+        ><small>{{ item.label }}</small></a
+      >
     </li>
     {%- endfor -%}
   </ul>
