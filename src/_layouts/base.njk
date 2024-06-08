@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="{{ eleventy.generator }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="webmention" href="https://webmention.io/stephensauceda.com/webmention" />
-  <link rel="pingback" href="https://webmention.io/stephensauceda.com/xmlrpc" />
-  <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
-  <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
-  <link rel="micropub" href="{{'/micropub' | absoluteUrl(site.url) }}" />
-  <link href="https://twitter.com/stephensauceda" rel="me">
-  <link href="mailto:contact@stephensauceda.com" rel="me">
-  <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="RSS Feed" />
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <title>{{title}} | {{site.domain}}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="{{ eleventy.generator }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="webmention"
+      href="https://webmention.io/stephensauceda.com/webmention"
+    />
+    <link
+      rel="pingback"
+      href="https://webmention.io/stephensauceda.com/xmlrpc"
+    />
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
+    <link rel="micropub" href="{{'/micropub' | absoluteUrl(site.url) }}" />
+    <link href="https://twitter.com/stephensauceda" rel="me" />
+    <link href="mailto:contact@stephensauceda.com" rel="me" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href="/feed.xml"
+      title="RSS Feed"
+    />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <title>{{ title }} | {{ site.domain }}</title>
 
-  {% include 'seo.njk' %}
-</head>
-<body>
-  <div class="flex flex-col min-h-screen px-4 py-4 mx-auto">
-    <main class="flex flex-col justify-center grow max-w-prose w-full mx-auto">
-      {{ content | safe }}
-    </main>
-    {% include 'footer.njk' %}
-  </div>
-</body>
+    {% include 'seo.njk' %}
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen px-4 py-4 mx-auto">
+      <main
+        class="flex flex-col justify-center grow max-w-prose w-full mx-auto"
+      >
+        {{ content | safe }}
+      </main>
+      {% include 'navigation.njk' %}
+    </div>
+  </body>
 </html>
